@@ -115,7 +115,7 @@ def get_wizard_text_and_entities(text):
     return plain_text, entities
 
 # --- MANAGER BOT CONFIG ---
-BOT_TOKEN = ""
+BOT_TOKEN = "8443746675:AAHl4qeUXwF5VsTik9mFm34CTVpJ303vBdE"
 ADMIN_CHAT_ID = 8935687148
 API_ID = 31926961
 API_HASH = "3b11a16e17cbc0d8f76db75928fc7db6"
@@ -2316,6 +2316,7 @@ async def bot_wizard(event):
                 del USER_REG_DATA[uid]
 
 
+# ==================== FIXED main() ====================
 async def main():
     print("🤖 Manager Bot starting...")
     try:
@@ -2345,6 +2346,7 @@ async def main():
 
     print("✅ Manager Bot online!")
     await bot.run_until_disconnected()
+
 
 if __name__ == '__main__':
     try:
