@@ -2318,10 +2318,33 @@ async def bot_wizard(event):
 
 async def main():
     print("🤖 Manager Bot starting...")
-    await bot.start(bot_token=BOT_TOKEN)
+    try:
+        await bot.connect()
+    except Exception as e:
+        print(f"⚠️ Initial connect failed: {e}")
+        print("🗑️ Removing stale session and retrying...")
+        try:
+            await bot.disconnect()
+        except Exception:
+            pass
+        for fname in ("manager_bot_session.session", "manager_bot_session.session-journal"):
+            try:
+                if os.path.exists(fname):
+                    os.remove(fname)
+            except Exception:
+                pass
+        await bot.connect()
+
+    if not await bot.is_user_authorized():
+        try:
+            await bot.sign_in(bot_token=BOT_TOKEN)
+        except Exception as e:
+            print(f"❌ Bot sign-in failed: {e}")
+            print("   → Check that BOT_TOKEN is still valid with @BotFather")
+            raise
+
     print("✅ Manager Bot online!")
     await bot.run_until_disconnected()
-
 
 if __name__ == '__main__':
     try:
