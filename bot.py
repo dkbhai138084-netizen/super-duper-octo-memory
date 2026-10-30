@@ -119,7 +119,7 @@ def get_wizard_text_and_entities(text):
 # --- MANAGER BOT CONFIG ---
 # ============================================================
 # 👇👇 NAYA TOKEN YAHAN PASTE KARO (quotes ke andar, bina space ke) 👇👇
-BOT_TOKEN_MANUAL = "8830365975:AAESXCLOPFfQ2n_pIXkPYmH3ujaWgNKoQ3A"
+BOT_TOKEN_MANUAL = ""
 # ☝️☝️ BotFather se Revoke karke jo naya token mile wahi daalna ☝️☝️
 # ============================================================
 
@@ -130,9 +130,9 @@ BOT_TOKEN = (
     or os.environ.get("TOKEN")
     or (BOT_TOKEN_MANUAL if BOT_TOKEN_MANUAL != "PASTE_NEW_TOKEN_HERE" else "")
 ).strip()
-ADMIN_CHAT_ID = int(os.environ.get("ADMIN_CHAT_ID", "8935687148"))
-API_ID = int(os.environ.get("API_ID", "31926961"))
-API_HASH = os.environ.get("API_HASH", "3b11a16e17cbc0d8f76db75928fc7db6")
+ADMIN_CHAT_ID = int(os.environ.get("ADMIN_CHAT_ID", ""))
+API_ID = int(os.environ.get("API_ID", ""))
+API_HASH = os.environ.get("API_HASH", "")
 
 USER_REG_DATA = {}
 ACTIVE_USERBOTS = {}
